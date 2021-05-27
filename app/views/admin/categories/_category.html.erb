@@ -1,0 +1,12 @@
+<tr>
+  <td>
+    <%= category.name %>
+  </td>
+  <td>
+    <%= @products.select{ |product| product["category_id"] == category.id }.count  %>
+  </td>
+  <td>
+    <%= link_to fa_icon('wrench'), class: 'btn btn-sm btn-danger admin-category-button' %>
+    <%= link_to fa_icon('trash'), class: 'btn btn-sm btn-danger admin-category-button' %>
+  </td>
+</tr>

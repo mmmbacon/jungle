@@ -1,0 +1,16 @@
+<h1>Categories</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Product Count</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @categories %>
+  </tbody>
+</table>
+
+<%= link_to "Create New", "categories/new", method: "get", class: 'btn btn-danger' %>
