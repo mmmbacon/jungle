@@ -1,17 +1,16 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
-
+RSpec.feature "ProductDetails", type: :feature do
   # SETUP
   before :each do
     @category = Category.create! name: 'Apparel'
 
-    10.times do |n|
+    1.times do |n|
       @category.products.create!(
-        name:  Faker::Hipster.sentence(3),
-        description: Faker::Hipster.paragraph(4),
+        name:  Faker::Hipster.sentence(n),
+        description: Faker::Hipster.paragraph(n),
         image: open_asset('apparel1.jpg'),
-        quantity: 10,
+        quantity: 10*n,
         price: 64.99
       )
     end
@@ -20,9 +19,11 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
   scenario "They see all products" do
     visit root_path
 
+    click_on @category.products[0].name
     # commented out b/c it's for debugging only
-    save_and_open_screenshot
+    #save_and_open_screenshot
 
-    #expect(page).to have_css 'article.product', count: 10
+    expect(page).to have_content(@category.products[0].name)
   end
+
 end
