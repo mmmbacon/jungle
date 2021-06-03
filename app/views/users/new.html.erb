@@ -2,7 +2,8 @@
 
 <%= form_for :user, url: '/users' do |f| %>
 <div class="container" style="width:40%;">
-  <div class="row text-right" style="margin-top: 10px;">Name: <%= f.text_field :name %></div>
+  <div class="row text-right" style="margin-top: 10px;">First Name: <%= f.text_field :first_name %></div>
+  <div class="row text-right" style="margin-top: 10px;">Last Name: <%= f.text_field :last_name %></div>
   <div class="row text-right" style="margin-top: 10px;">Email: <%= f.text_field :email %></div>
   <div class="row text-right" style="margin-top: 10px;">Password: <%= f.password_field :password %></div>
   <div class="row text-right" style="margin-top: 10px;">Password Confirmation: <%= f.password_field :password_confirmation %></div>
